@@ -72,7 +72,8 @@ const About = () => {
           </div>
 
           <a
-            href="/CV_Lovasoa_Gilbert.pdf"
+            href="julianot-lovasoa.pdf"
+            download
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-6 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition duration-300"
