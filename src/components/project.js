@@ -1,34 +1,80 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import portfolio from "../assets/project_pic/protflio.png";
+import inscription from "../assets/project_pic/inscription.png";
+import bank1 from "../assets/project_pic/bank1.png";
+import bank2 from "../assets/project_pic/bank2.png";
+import bank4 from "../assets/project_pic/bank4.png";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Projects = () => {
   const [filter, setFilter] = useState("Tous");
 
   const allProjects = [
     {
-      title: "Portfolio React",
-      category: "React",
-      img: "https://via.placeholder.com/300",
-      github: "https://github.com/tonprofil/portfolio-react",
-      demo: "https://tonportfolio.vercel.app",
-    },
-    {
-      title: "Site Vitrine",
+      title: "Site E-commerce",
       category: "HTML/CSS",
-      img: "https://via.placeholder.com/300",
-      github: "https://github.com/tonprofil/site-vitrine",
-      demo: "", // Pas de démo en ligne
+      img: ["https://via.placeholder.com/300"],
+      github: "",
+      demo: "",
+      description:
+        "Une boutique en ligne simple pour la présentation de produits.",
+      technologies: "HTML, CSS, Javascript",
     },
     {
-      title: "App Mobile",
-      category: "Flutter",
-      img: "https://via.placeholder.com/300",
-      github: "https://github.com/tonprofil/app-flutter",
-      demo: "https://appmobile-demo.netlify.app",
+      title: "Assistant IA",
+      category: "React Native",
+      img: ["https://via.placeholder.com/300"],
+      github: "https://github.com/Lovasoa3691/AssistantEtudiant",
+      demo: "",
+      description:
+        "Application mobile permettant aux etudiants de gerer son planning du cours, module de revision et un chatbot pour poser des questions.",
+      technologies: "React-Native, Flask, MySQL",
+    },
+    {
+      title: "Compte Bancaire",
+      category: "React",
+      img: [bank1, bank2, bank4],
+      github: "https://github.com/Lovasoa3691/banking-app",
+      demo: "",
+      description:
+        "Application web permettant de gérer des comptes cbanacaires telle que creation d'un nouveau compte, gestion des demandes de pret (Admin). " +
+        "Pour les clients, consultation du solde, faire des virements, retrait, demande de pret et consultation de l'historique des transactions.",
+      technologies: "React, CSS, Node, Express, MySQL",
+    },
+    {
+      title: "Systeme d'inscription",
+      category: "React",
+      img: [inscription],
+      github: "https://github.com/Lovasoa3691/inscription",
+      demo: "",
+      description:
+        "Application web  permettant aux etudiants de s'inscrire facilement aux examens au sein de son etablissement. (Dasboard Admin, Dashboard Etudiant)",
+      technologies: "MongoDB, Express, React, Node.js, Bootstrap",
+    },
+    {
+      title: "Emploi du Temps",
+      category: "React",
+      img: ["https://via.placeholder.com/300"],
+      github: "",
+      demo: "",
+      description: "Application web  permettant de gérer les emplois du temps.",
+      technologies: "React, CSS, Flask, MySQL",
+    },
+    {
+      title: "Portfolio",
+      category: "React",
+      img: [portfolio],
+      github: "https://github.com/Lovasoa3691/portfolio3691",
+      demo: "https://julianot-julianot.vercel.app",
+      description:
+        "Un portfolio personnel réalisé avec React, intégrant des animations et une interface responsive.",
+      technologies: "React.js, Tailwind CSS, Framer Motion",
     },
   ];
 
-  const categories = ["Tous", "React", "HTML/CSS", "Flutter"];
+  const categories = ["Tous", "React", "HTML/CSS", "React Native"];
 
   const filteredProjects =
     filter === "Tous"
@@ -73,11 +119,22 @@ const Projects = () => {
               className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col"
               whileHover={{ scale: 1.05 }}
             >
-              <img
+              <Carousel showThumbs={false} infiniteLoop autoPlay>
+                {project.img.map((image, index) => (
+                  <div key={index}>
+                    <img
+                      src={image}
+                      alt={`${project.title} - image ${index + 1}`}
+                      className="w-full h-72"
+                    />
+                  </div>
+                ))}
+              </Carousel>
+              {/* <img
                 src={project.img}
                 alt={project.title}
-                className="w-full h-72 object-cover"
-              />
+                className="w-full h-72"
+              /> */}
               <div className="p-4 flex flex-col justify-between flex-1">
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -85,6 +142,13 @@ const Projects = () => {
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
                     {project.category}
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                    {project.description}
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 text-bold">
+                    <strong>Technologies: </strong>
+                    {project.technologies}
                   </p>
                 </div>
                 <div className="flex gap-3 mt-auto">

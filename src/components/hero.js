@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import profilePic from "../assets/profile.jpg";
+import profilePic from "../assets/profile2.jpg";
 
 const Hero = () => {
   return (
     <section
       id="hero"
-      // bg-gradient-to-br from-green-600 to-emerald-500
       className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-900 text-white px-4"
     >
       <div className="md:w-1/2 text-center md:text-left">
@@ -24,7 +23,7 @@ const Hero = () => {
           transition={{ duration: 1 }}
           className="text-5xl font-bold mb-4"
         >
-          Lovasoa Juliannot
+          Juliannot
         </motion.h1>
 
         <motion.h2
@@ -48,7 +47,6 @@ const Hero = () => {
           et intuitives.
         </motion.p>
 
-        {/* Informations supplémentaires */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -62,7 +60,6 @@ const Hero = () => {
           détail.
         </motion.p>
 
-        {/* Boutons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,12 +88,9 @@ const Hero = () => {
         className="md:w-2/2 mt-8 md:mt-0 flex justify-center"
       >
         <img
-          // width={500}
-          // height={00}
           src={profilePic}
           alt="Portrait de Julianot, développeur Full-Stack"
-          // className="w-96 h-96 size-40 object-cover rounded-full border-4 border-white shadow-lg"
-          className="w-96 h-96 size-40 object-cover border-white shadow-lg"
+          className="w-[500px] h-[500px] object-cover border-4 border-white shadow-2xl rounded-full"
         />
       </motion.div>
     </section>

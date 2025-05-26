@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profilePic from "../assets/profile.jpg";
+import profilePic from "../assets/profile1.jpg";
 import { FaMusic, FaPlane, FaFilm, FaFutbol } from "react-icons/fa";
 
 const About = () => {
@@ -15,7 +15,7 @@ const About = () => {
           <img
             src={profilePic}
             alt="Moi"
-            className="w-80 h-80 object-cover rounded-md shadow-md"
+            className="w-80 h-80 object-cover border-rounded border-white border-4 rounded-md shadow-md"
           />
         </div>
 
@@ -72,7 +72,7 @@ const About = () => {
           </div>
 
           <a
-            href="julianot-lovasoa.pdf"
+            href="julianot-cv.pdf"
             download
             target="_blank"
             rel="noopener noreferrer"
