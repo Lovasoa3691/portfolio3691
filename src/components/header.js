@@ -40,7 +40,7 @@ export default function Header() {
           ))}
 
           <a
-            href="julianot-lovasoa.pdf"
+            href="julianot-cv.pdf"
             target="_blank"
             download
             className="bg-transparent border-2 border-white font-semibold py-2 px-6 rounded-full text-white hover:text-teal-300 hover:border-teal-300 transition duration-300"
