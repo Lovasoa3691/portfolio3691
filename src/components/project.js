@@ -5,32 +5,40 @@ import inscription from "../assets/project_pic/inscription.png";
 import bank1 from "../assets/project_pic/bank1.png";
 import bank2 from "../assets/project_pic/bank2.png";
 import bank4 from "../assets/project_pic/bank4.png";
+
+import a1 from "../assets/project_pic/assistant1.png";
+import a2 from "../assets/project_pic/assistant2.png";
+import a3 from "../assets/project_pic/assistant3.png";
+import a4 from "../assets/project_pic/assistant4.png";
+
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { a } from "framer-motion/client";
 
 const Projects = () => {
   const [filter, setFilter] = useState("Tous");
 
   const allProjects = [
-    {
-      title: "Site E-commerce",
-      category: "HTML/CSS",
-      img: ["https://via.placeholder.com/300"],
-      github: "",
-      demo: "",
-      description:
-        "Une boutique en ligne simple pour la présentation de produits.",
-      technologies: "HTML, CSS, Javascript",
-    },
+    // {
+    //   title: "Site E-commerce",
+    //   category: "HTML/CSS",
+    //   img: ["https://via.placeholder.com/300"],
+    //   github: "",
+    //   demo: "",
+    //   description:
+    //     "Une boutique en ligne simple pour la présentation de produits.",
+    //   technologies: "HTML, CSS, JavaScript",
+    // },
     {
       title: "Assistant IA",
       category: "React Native",
-      img: ["https://via.placeholder.com/300"],
+      img: [a1, a2, a3, a4],
       github: "https://github.com/Lovasoa3691/AssistantEtudiant",
       demo: "",
+      status: "En cours de développement",
       description:
-        "Application mobile permettant aux etudiants de gerer son planning du cours, module de revision et un chatbot pour poser des questions.",
-      technologies: "React-Native, Flask, MySQL",
+        "Application mobile permettant aux étudiants de gérer leur planning de cours, avec un module de révision et un chatbot pour poser des questions.",
+      technologies: "React Native, Flask, MySQL",
     },
     {
       title: "Compte Bancaire",
@@ -39,29 +47,30 @@ const Projects = () => {
       github: "https://github.com/Lovasoa3691/banking-app",
       demo: "",
       description:
-        "Application web permettant de gérer des comptes cbanacaires telle que creation d'un nouveau compte, gestion des demandes de pret (Admin). " +
-        "Pour les clients, consultation du solde, faire des virements, retrait, demande de pret et consultation de l'historique des transactions.",
+        "Application web permettant de gérer des comptes bancaires, notamment la création de nouveaux comptes et la gestion des demandes de prêt (Admin). " +
+        "Pour les clients : consultation du solde, virements, retraits, demandes de prêt et consultation de l’historique des transactions.",
       technologies: "React, CSS, Node, Express, MySQL",
     },
     {
-      title: "Systeme d'inscription",
+      title: "Système d'inscription",
       category: "React",
       img: [inscription],
       github: "https://github.com/Lovasoa3691/inscription",
       demo: "",
       description:
-        "Application web  permettant aux etudiants de s'inscrire facilement aux examens au sein de son etablissement. (Dasboard Admin, Dashboard Etudiant)",
+        "Application web permettant aux étudiants de s'inscrire facilement aux examens au sein de leur établissement. (Dashboard Admin, Dashboard Étudiant)",
       technologies: "MongoDB, Express, React, Node.js, Bootstrap",
     },
-    {
-      title: "Emploi du Temps",
-      category: "React",
-      img: ["https://via.placeholder.com/300"],
-      github: "",
-      demo: "",
-      description: "Application web  permettant de gérer les emplois du temps.",
-      technologies: "React, CSS, Flask, MySQL",
-    },
+    // {
+    //   title: "Emploi du Temps",
+    //   category: "React",
+    //   img: ["https://via.placeholder.com/300"],
+    //   github: "https://github.com/Lovasoa3691/EmploiDuTemps",
+    //   demo: "",
+    //   status: "En cours d'amélioration",
+    //   description: "Application web permettant de gérer les emplois du temps.",
+    //   technologies: "React, CSS, Flask, MySQL",
+    // },
     {
       title: "Portfolio",
       category: "React",
@@ -74,7 +83,7 @@ const Projects = () => {
     },
   ];
 
-  const categories = ["Tous", "React", "HTML/CSS", "React Native"];
+  const categories = ["Tous", "React", "React Native"];
 
   const filteredProjects =
     filter === "Tous"
@@ -130,11 +139,7 @@ const Projects = () => {
                   </div>
                 ))}
               </Carousel>
-              {/* <img
-                src={project.img}
-                alt={project.title}
-                className="w-full h-72"
-              /> */}
+
               <div className="p-4 flex flex-col justify-between flex-1">
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -145,6 +150,13 @@ const Projects = () => {
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                     {project.description}
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                    {project.status ? (
+                      <span className="text-yellow-500">{project.status}</span>
+                    ) : (
+                      "Statut non spécifié"
+                    )}
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 text-bold">
                     <strong>Technologies: </strong>
